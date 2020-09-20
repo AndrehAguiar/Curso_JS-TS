@@ -13,7 +13,6 @@ const setResult = function (msg, isValid) {
 
     isValid ? p.classList.add('valid') : p.classList.add('invalid');
 
-    console.log(msg);
     p.innerHTML = msg;
     result.appendChild(p);
 }
@@ -36,7 +35,7 @@ const getIMC = function (args) {
     const peso = args.peso;
     const altura = args.altura;
     const imc = peso / (altura ** 2);
-    return imc;
+    return imc.toFixed(2);
 }
 
 const getResult = function (imc) {
@@ -58,7 +57,7 @@ const calcular = function (event) {
     if (args.peso && args.altura) {
         const imc = getIMC(args);
         const msg = getResult(imc);
-        setResult(msg, true)
+        setResult(`Seu IMC é ${imc}: (${msg})`, true)
     }
 }
 
