@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttonReset = document.createElement('button');
     const buttonInit = document.createElement('button');
     const buttonPause = document.createElement('button');
+
     let ms = 0;
     let cronoCounter;
 
@@ -19,39 +20,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-        const timerInit = function () {
-            const crono = document.querySelector('#crono');
-            cronoCounter = setInterval(function () {
-                ms++
-                crono.innerText = setTime(ms);
-            }, 1000);
-        }
-
-        const timerPause = function () {
-            clearInterval(cronoCounter);
-        }
-
-        const timerReset = function () {
-            const crono = document.querySelector('#crono');
-            clearInterval(cronoCounter);
-            ms = 0;
-            crono.innerText = setTime(ms);
-        }
-
         const create = function () {
 
             cronometer.id = 'crono';
             cronometer.innerText = setTime(ms);
 
-            buttonInit.innerText = 'Iniciar';
+            buttonInit.innerText = 'Start';
+            buttonInit.className = 'init';
             buttonInit.type = 'button';
             buttonInit.id = 'init';
 
-            buttonPause.innerText = 'Pausar';
+            buttonPause.innerText = 'Pause';
+            buttonPause.className = 'pause';
             buttonPause.type = 'button';
             buttonPause.id = 'pause';
 
             buttonReset.innerText = 'Reset';
+            buttonReset.className = 'reset';
             buttonReset.type = 'button';
             buttonReset.id = 'reset';
 
@@ -60,23 +45,40 @@ document.addEventListener('DOMContentLoaded', function () {
             container.appendChild(buttonPause);
             container.appendChild(buttonReset);
 
+            const crono = document.querySelector('#crono');
+
+        }
+
+        const timerInit = function () {
+            cronoCounter = setInterval(function () {
+                ms++
+                crono.innerText = setTime(ms);
+            }, 1000);
+            crono.style.color = 'black';
+        }
+
+        const timerPause = function () {
+            clearInterval(cronoCounter);
+            crono.style.color = 'red';
+        }
+
+        const timerReset = function () {
+            clearInterval(cronoCounter);
+            ms = 0;
+            crono.innerText = setTime(ms);
+            crono.style.color = 'black';
         }
 
         const addEvent = function () {
 
-            const init = document.querySelector('#init');
-            const pause = document.querySelector('#pause');
-            const reset = document.querySelector('#reset');
-
-            init.addEventListener('click', timerInit);
-
-            pause.addEventListener('click', timerPause);
-
-            reset.addEventListener('click', timerReset);
-
-
-
+            document.addEventListener('click', function (e) {
+                const el = e.target;
+                if (el.classList.contains('init')) timerInit();
+                if (el.classList.contains('pause')) timerPause();
+                if (el.classList.contains('reset')) timerReset();
+            });
         }
+
         create();
         addEvent();
     }
