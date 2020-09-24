@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let path = window.location;
 
                 path === (`${urlPath}${navs[element]}`)
-                    ? '' : path.replace(`${urlPath}${navs[element]}`);
+                    ? './' : path.replace(`${urlPath}${navs[element]}`);
 
             });
         });
