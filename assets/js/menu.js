@@ -20,15 +20,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const idEl = document.getElementById(`${element}`);
 
-            idEl.addEventListener('click', function () {
+            idEl.addEventListener('click', function (e) {
                 if (element === 'home'){                    
                     window.location.pathname === (`/${navs[element]}`)
                         ? './' : window.location.replace(`../`);
                 }
                 else{
                     window.location.pathname.includes(`${navs[element]}`)
-                        ? './' : window.location.replace(`/Curso_JS-TS/${navs[element]}`);
+                        ? './' : window.location.replace(`${navs[element]}`,`e.path`);
                 }
+                console.log(e.path);
 
             });
 
