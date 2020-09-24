@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const navs = {
             'home': '/Curso_JS-TS/',
             'imc': 'imcCalculator/',
-            'timer': '/Curso_JS-TS/timer/',
-            'tasks': '/Curso_JS-TS/lstTarefa/'
+            'timer': 'Curso_JS-TS/timer/',
+            'tasks': 'Curso_JS-TS/lstTarefa/'
         };
 
         const menu = document.querySelector('#menu');
