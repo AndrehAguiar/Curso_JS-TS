@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const createMenu = function () {
         const navs = {
             'home': '/Curso_JS-TS/',
-            'imc': '/Curso_JS-TS/imcCalculator/',
+            'imc': 'imcCalculator/',
             'timer': '/Curso_JS-TS/timer/',
             'tasks': '/Curso_JS-TS/lstTarefa/'
         };
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             idEl.addEventListener('click', function () {
 
                 window.location.pathname == `${navs[element]}`
-                    ? './' : window.location.replace(`${navs[element]}`);
+                    ? './' : window.location.replace(`./${navs[element]}`);
             });
 
         });
