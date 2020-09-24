@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 let path = window.location.pathname;
                 if (element === 'home'){                    
                     path === (`/${navs[element]}`)
-                        ? './' : window.location.replace(`../`);
+                        ? './' : window.location.replace(`./${navs[element]}`);
                 }
                 else{
                     path.includes(`${navs[element]}`)
-                        ? './' : window.location.replace(`${navs[element]}`);
+                        ? './' : window.location.replace(`../${navs[element]}`);
                 }
 
             });
