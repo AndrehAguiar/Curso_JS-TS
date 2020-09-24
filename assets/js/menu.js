@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const createMenu = function () {
         const navs = {
             'home': '/',
-            'imc': './imcCalculator/',
+            'imc': 'Curso_JS-TS/imcCalculator/',
             'timer': './timer/',
             'tasks': './lstTarefa/'
         };
