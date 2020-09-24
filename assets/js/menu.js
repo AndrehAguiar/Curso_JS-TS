@@ -28,12 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 else{
                     path.includes(`${navs[element]}`)
-                        ? './' : window.location.replace(`${navs[element]}`,`e.path[0]`);
+                        ? './' : window.location.replace(`${navs[element]}`);
                 }
-                console.log(e);
-                let test = `${e.path[0]}`;
-                test.split('#');
-                console.log(test);
 
             });
 
