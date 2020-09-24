@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             idEl.addEventListener('click', function () {
 
                 window.location.pathname.includes(`${navs[element]}`)
-                    ? './' : window.location.replace(`../${navs[element]}`);
+                    ? './' : window.location.replace(`Curso_JS-TS/${navs[element]}`);
             });
 
         });
