@@ -1,15 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    const container = document.querySelector('.container');
-    const cronometer = document.createElement('span');
-    const buttonReset = document.createElement('button');
-    const buttonInit = document.createElement('button');
-    const buttonPause = document.createElement('button');
-
-    let ms = 0;
-    let cronoCounter;
-
     const timer = function () {
+
+        const container = document.querySelector('.container');
+        const title = document.createElement('h1');
+        const cronometer = document.createElement('span');
+        const buttonReset = document.createElement('button');
+        const buttonInit = document.createElement('button');
+        const buttonPause = document.createElement('button');
+
+        title.innerText = 'Timer';
+        container.appendChild(title);
+
+        let ms = 0;
+        let cronoCounter;
 
         const setTime = function (segundos) {
             const time = new Date(segundos * 1000);
