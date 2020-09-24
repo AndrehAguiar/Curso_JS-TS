@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const createMenu = function () {
         const navs = {
-            'home': '../',
+            'home': '',
             'imc': 'imcCalculator/',
             'timer': 'timer/',
             'tasks': 'lstTarefa/'
