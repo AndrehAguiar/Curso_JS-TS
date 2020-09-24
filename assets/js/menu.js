@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         ? './' : window.location.replace(`${navs[element]}`,`e.path[0]`);
                 }
                 console.log(e);
-                let test = `${e.path[0]};
+                let test = `${e.path[0]}`;
                 test.split('#');
                 console.log(test);
 
