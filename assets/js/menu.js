@@ -21,15 +21,16 @@ document.addEventListener('DOMContentLoaded', function () {
             const idEl = document.getElementById(`${element}`);
 
             idEl.addEventListener('click', function (e) {
+                let path = window.location.pathname;
                 if (element === 'home'){                    
-                    window.location.pathname === (`/${navs[element]}`)
+                    path === (`/${navs[element]}`)
                         ? './' : window.location.replace(`../`);
                 }
                 else{
-                    window.location.pathname.includes(`${navs[element]}`)
+                    path.includes(`${navs[element]}`)
                         ? './' : window.location.replace(`${navs[element]}`,`e.pathname`);
                 }
-                console.log(e.pathname);
+                console.log(e);
 
             });
 
