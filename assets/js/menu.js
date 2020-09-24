@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 else{
                     window.location.pathname.includes(`${navs[element]}`)
-                        ? './' : window.location.replace(`../Curso_JS-TS/${navs[element]}`);
+                        ? './' : window.location.replace(`/Curso_JS-TS/${navs[element]}`);
                 }
 
             });
