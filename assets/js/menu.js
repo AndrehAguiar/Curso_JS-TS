@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const createMenu = function () {
         const navs = {
             'home': '/Curso_JS-TS/',
-            'imc': '/Curso_JS-TS//imcCalculator/',
-            'timer': '/Curso_JS-TS//timer/',
-            'tasks': '/Curso_JS-TS//lstTarefa/'
+            'imc': '/Curso_JS-TS/imcCalculator/',
+            'timer': '/Curso_JS-TS/timer/',
+            'tasks': '/Curso_JS-TS/lstTarefa/'
         };
 
         const menu = document.querySelector('#menu');
