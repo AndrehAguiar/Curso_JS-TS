@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             idEl.addEventListener('click', function () {
                 if (element === 'home'){                    
-                    window.location.pathname === (/`${navs[element]}`)
+                    window.location.pathname === (`/${navs[element]}`)
                         ? './' : window.location.replace(`../`);
                 }
                 else{
