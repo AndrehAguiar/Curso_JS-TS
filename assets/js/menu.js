@@ -1,11 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
+    
+    const urlPath = https://andrehaguiar.github.io/Curso_JS-TS;
 
     const createMenu = function () {
         const navs = {
-            'home': 'Curso_JS-TS/',
-            'imc': 'imcCalculator/',
-            'timer': 'timer/',
-            'tasks': 'lstTarefa/'
+            'home': '/',
+            'imc': '/imcCalculator/',
+            'timer': '/timer/',
+            'tasks': '/lstTarefa/'
         };
 
         const menu = document.querySelector('#menu');
@@ -22,14 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             idEl.addEventListener('click', function (e) {
                 let path = window.location.pathname;
-                if (element === 'home'){                    
-                    path === (`/${navs[element]}`)
-                        ? './' : window.location.replace(`./${navs[element]}`);
-                }
-                else{
-                    path.includes(`${navs[element]}`)
-                        ? './' : window.location.replace(`../${navs[element]}`);
-                }
+                
+                path === (`${urlPath}${navs[element]}`)
+                    ? './' : window.location.replace(`${urlPath}${navs[element]}`);
 
             });
 
