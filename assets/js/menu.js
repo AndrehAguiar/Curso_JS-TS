@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'home': '../',
             'imc': 'imcCalculator/',
             'timer': 'timer/',
-            'tasks': 'Curso_JS-TS/lstTarefa/'
+            'tasks': 'lstTarefa/'
         };
 
         const menu = document.querySelector('#menu');
