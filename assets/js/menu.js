@@ -27,9 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 else{
                     window.location.pathname.includes(`${navs[element]}`)
-                        ? './' : window.location.replace(`${navs[element]}`,`e.pathid`);
+                        ? './' : window.location.replace(`${navs[element]}`,`e.pathname`);
                 }
-                console.log(e.pathid);
+                console.log(e.pathname);
 
             });
 
