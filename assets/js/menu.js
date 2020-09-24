@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const navs = {
             'home': '../',
             'imc': 'imcCalculator/',
-            'timer': 'Curso_JS-TS/timer/',
+            'timer': 'timer/',
             'tasks': 'Curso_JS-TS/lstTarefa/'
         };
 
