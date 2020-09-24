@@ -21,9 +21,15 @@ document.addEventListener('DOMContentLoaded', function () {
             const idEl = document.getElementById(`${element}`);
 
             idEl.addEventListener('click', function () {
+                if (element === 'home'){                    
+                    window.location.pathname === (/`${navs[element]}`)
+                        ? './' : window.location.replace(`../`);
+                }
+                else{
+                    window.location.pathname.includes(`${navs[element]}`)
+                        ? './' : window.location.replace(`../${navs[element]}`);
+                }
 
-                window.location.pathname.includes(`${navs[element]}`)
-                    ? './' : window.location.replace(`Curso_JS-TS/${navs[element]}`);
             });
 
         });
