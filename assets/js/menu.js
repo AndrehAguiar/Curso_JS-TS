@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const createMenu = function () {
         const navs = {
-            'home': '../',
+            'home': '/',
             'imc': 'imcCalculator/',
             'timer': 'timer/',
             'tasks': 'lstTarefa/'
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             idEl.addEventListener('click', function () {
 
                 window.location.pathname == `${navs[element]}`
-                    ? './' : window.location.replace(`../${navs[element]}`);
+                    ? './' : window.location.replace(`./${navs[element]}`);
             });
 
         });
