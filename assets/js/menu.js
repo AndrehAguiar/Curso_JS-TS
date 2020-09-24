@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    const urlPath = 'https://andrehaguiar.github.io/Curso_JS-TS';
+    //const urlPath = 'http://127.0.0.1:5500';
+
     const createMenu = function () {
         const navs = {
             'home': '/',
@@ -22,12 +25,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             idEl.addEventListener('click', function () {
 
-                window.location.pathname == `${navs[element]}`
-                    ? './' : window.location.replace(`${navs[element]}`);
+                let path = window.location;
+
+                path === (`${urlPath}${navs[element]}`)
+                    ? '' : path.replace(`${urlPath}${navs[element]}`);
+
             });
-
         });
-
     }
     createMenu();
 });

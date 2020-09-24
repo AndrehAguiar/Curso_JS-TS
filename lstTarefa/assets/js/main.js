@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const readTasks = function () {
             const tasks = localStorage.getItem('Tasks');
             const lstTasks = JSON.parse(tasks);
-            console.log(lstTasks);
 
+            if (!lstTasks) return;
             lstTasks.forEach(task => {
                 setTask(task);
             });
