@@ -34,5 +34,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
     createMenu();
-    console.log(window.location);
 });
