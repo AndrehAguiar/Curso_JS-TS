@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     
-    const urlPath = https://andrehaguiar.github.io/Curso_JS-TS;
+    const urlPath = 'https://andrehaguiar.github.io/Curso_JS-TS';
 
     const createMenu = function () {
         const navs = {
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const idEl = document.getElementById(`${element}`);
 
             idEl.addEventListener('click', function (e) {
-                let path = window.location.pathname;
+                let path = window.location;
                 
                 path === (`${urlPath}${navs[element]}`)
                     ? './' : window.location.replace(`${urlPath}${navs[element]}`);
