@@ -29,6 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
     }
-    console.log(window.location.pathname);
     createMenu();
+    console.log(window.location.pathname);
 });
