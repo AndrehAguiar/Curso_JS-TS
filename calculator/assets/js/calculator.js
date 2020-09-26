@@ -145,6 +145,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         case ')':
                             this.setFormula(e.key);
                             break;
+                        case 'Backspace':
+                            this.delValue();
+                            break;
                         default:
                             return;
                     }
