@@ -49,14 +49,13 @@ document.addEventListener('DOMContentLoaded', function () {
             result() {
 
                 try {
-                    let mathAccount = eval(this.formula.innerText.slice(0, -1));
+                    let mathAccount = eval(this.formula.innerText.slice(0, -1)).toFixed(2);
                     this.formula.innerText.slice(-1) === '='
                         ? this.formula.innerText += mathAccount
                         : this.formula.innerText;
                     this.setResult(mathAccount);
 
                 } catch (e) {
-                    console.log(e);
                     this.resultState = true;
                     return;
                 }
@@ -113,9 +112,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
             pressKey() {
 
-                document.addEventListener('keypress', function (e) {
-                    console.log(e.key);
-                })
+                document.addEventListener('keydown', function (e) {
+                    let num = e.key in [...Array(10).keys()];
+                    let oper = ['-', '+', '/', '*'].includes(e.key);
+                    let funcValue = e.key;
+                    if (num) {
+                        funcValue = 'num';
+                    }
+                    else if (oper) {
+                        funcValue = 'oper';
+                    }
+
+                    switch (funcValue) {
+                        case 'Escape':
+                            this.clearDisplay();
+                            break;
+                        case 'Enter':
+                            this.setFormula('=');
+                            break;
+                        case 'num':
+                            this.btnDisplay(e.key);
+                            break
+                        case 'oper':
+                            this.setFormula(e.key);
+                            break;
+                        case '.':
+                            this.formatDecimal(e.key);
+                            break;
+                        case '(':
+                            this.formatFormula(e.key);
+                            break;
+                        case ')':
+                            this.setFormula(e.key);
+                            break;
+                        default:
+                            return;
+                    }
+
+                }.bind(this));
             },
 
         };
