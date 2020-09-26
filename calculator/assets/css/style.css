@@ -1,0 +1,53 @@
+.grdCalculator{
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 0.2rem;
+}
+.grdCalculator>span{
+    text-align: right;
+    grid-column-start:1;
+    grid-column-end:5;
+}
+.grdCalculator>div{
+    cursor: pointer;
+    height: 3rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding-top: 1rem;
+    border-radius: 0.1rem;
+    border: 0.01rem solid slategrey;
+    background-image: linear-gradient(whitesmoke, white, white, white, white,  white,whitesmoke);
+}
+.grdCalculator>div:hover{
+    box-shadow: 0 0 0.1rem gray;
+    background-image: linear-gradient(lightgray, white, white, white, white,  white,lightgray);
+}
+input{
+    border-radius: 0.3rem;
+    width: 98%;
+    height: 3rem;
+    font-size: 2rem;
+    text-align : right;
+}
+.display{
+    background: none !important;
+    border: none !important;
+    grid-column-start:1;
+    grid-column-end:5;
+    margin-bottom: 0.5rem;
+}
+.display:hover{
+    box-shadow:none !important;
+}
+.grdCalculator>.equal{
+    color: white;
+    background-color: rgb(34, 148, 255) !important;
+    background-image: none;
+}
+.grdCalculator>.equal:hover{
+    background-color: rgb(0, 132, 255) !important;
+    background-image: none;
+}
