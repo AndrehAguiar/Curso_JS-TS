@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
             'imc': '/imcCalculator/',
             'timer': '/timer/',
             'tasks': '/lstTask/',
-            'calculator': '/calculator'
+            'calculator': '/calculator/',
+            'cpf': '/cpf/'
         };
 
         const menu = document.querySelector('#menu');
