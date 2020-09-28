@@ -22,8 +22,7 @@ class ValidCPF {
             digit = this.check(cpfArr);
 
             if (digit !== Number(this.cpfClean.charAt(cpfArr.length))) return false;
-
-            return true;
+            return this.isSequency() ? false : true;
         }
 
         ValidCPF.prototype.check = function (cpfArr) {
@@ -52,9 +51,12 @@ class ValidCPF {
             return cpf;
         }
 
+        ValidCPF.prototype.isSequency = function () {
+            return this.cpfClean === this.cpfClean[0].repeat(this.cpfClean.length);
+        }
+
     }
 
 }
-
 
 export { ValidCPF };
