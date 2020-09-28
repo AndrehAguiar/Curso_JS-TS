@@ -1,3 +1,5 @@
+import { ValidCPF } from './cpf.js';
+
 document.addEventListener('DOMContentLoaded', function () {
     const container = document.querySelector('.container');
 
@@ -33,24 +35,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const generate = document.querySelector('#generate');
 
     generate.addEventListener('click', function (e) {
-        const len = 9;
-        let cpf = '';
-        for (let i = 0; i < 9; i++) {
-            cpf += `${Math.floor(Math.random() * 10)}`;
-        }
 
-        cpf += checkCPF(cpf, 0, true);
-        cpf += checkCPF(cpf, 1, true);
-        checkCPF(cpf);
+        const objCPF = new ValidCPF();
+        let cpf = objCPF.generate();
         inpCPF.value = cpf;
-        formatCPF(cpf);
+        formatCPF(inpCPF.value);
+        checkCPF(inpCPF.value)
+
     })
 
     inpCPF.addEventListener('keyup', function () {
-        const cpf = inpCPF.value.replace(/\D+/g, '');
-        formatCPF(cpf);
-        if (cpf.length == 11) checkCPF(cpf);
-    })
+
+        const objCPF = new ValidCPF(inpCPF.value);
+        formatCPF(objCPF.cpfClean);
+        inpCPF.value.length >= 10 ? checkCPF(objCPF.cpfClean) : validate(false);
+
+    });
 
     const formatCPF = function (cpf) {
         inpCPF.value = cpf;
@@ -60,27 +60,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (cpf.length >= 10) inpCPF.value = `${cpf.slice(0, 3)}.${cpf.slice(3, 6)}.${cpf.slice(6, 9)}-${cpf.slice(9, 12)}`;
     }
 
-    const checkCPF = function (cpf, step = 0, generate = false) {
+    const checkCPF = function (cpf) {
 
-        const cpfArr = Array.from(cpf).slice(0, 9 + step);
+        const objCPF = new ValidCPF(cpf);
 
-        let increment = cpfArr.length + 1;
-
-        const check = cpfArr.reduce((accumulator, value) => {
-            accumulator += (value * increment);
-            increment--;
-            return accumulator;
-        }, 0);
-
-        let digit = (11 - (check % 11));
-        digit = digit > 9 ? 0 : digit;
-        if (generate) return digit;
-
-        let chkDigit = cpf.charAt(cpfArr.length);
-
-        cpfArr.push(digit);
-        const result = digit == chkDigit;
-        result && cpfArr.length < 11 ? checkCPF(cpf, step = 1) : validate(result);
+        validate(objCPF.validate(objCPF.cpfClean));
     }
 
     const validate = function (result) {
