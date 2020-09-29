@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
             'timer': '/timer/',
             'tasks': '/lstTask/',
             'calculator': '/calculator/',
-            'cpf': '/cpf/'
+            'cpf': '/cpf/',
+            'bank': '/bank/'
         };
 
         const menu = document.querySelector('#menu');

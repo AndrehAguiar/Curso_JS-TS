@@ -1,0 +1,20 @@
+h2{
+    border-top: 0.1rem solid var(--backGround);
+    padding-top: 1rem;
+
+}
+label{
+    padding: 1rem;
+}
+label,label>input, form>button{
+    cursor: pointer;
+}
+form{
+    width: 40%;
+    min-width: 25rem;
+    max-width: 50em;
+    margin: 0 auto;
+}
+form>input{
+    padding: 0.5rem;
+}
