@@ -1,49 +1,7 @@
+import { createForm, createInput, createButton, createLabel, createDOM } from '../js/content.js';
 import { setAccount } from '../control/ctrlAccount.js';
-import { setAccess } from '../control/ctrlAccess.js';
+import { setAccess, setLogout } from '../control/ctrlAccess.js';
 
-const createForm = function (id, action = '', method = '') {
-
-    const form = document.createElement('form');
-    form.id = id;
-    form.action = action;
-    form.method = method;
-
-    return form;
-}
-
-const createInput = function (type, value, name, id, placeholder, required) {
-
-    const input = document.createElement('input');
-    input.type = type;
-    input.value = value;
-    input.name = name;
-    input.id = id;
-    input.placeholder = placeholder;
-    input.required = required;
-
-    return input;
-}
-
-const createLabel = function (labelFor, text) {
-
-    const label = document.createElement('label');
-    label.htmlFor = labelFor;
-    label.innerText = text;
-    label.id = labelFor;
-
-    return label;
-}
-
-const createButton = function (type, value, id, text) {
-
-    const button = document.createElement('button');
-    button.value = value;
-    button.type = type;
-    button.id = id;
-    button.innerText = text;
-
-    return button;
-}
 
 const accountForm = function () {
     const container = document.querySelector('.container');
@@ -81,4 +39,74 @@ const accessForm = function () {
     subTitle.innerText = 'Access account'
 }
 
-export { createForm, createInput, createLabel, accountForm, accessForm };
+const bankForm = function () {
+
+    const container = document.querySelector('.container');
+
+    const bankForm = createForm('bankForm', '', 'get');
+
+    const labelWithdraw = createLabel('inpWithdraw', 'Withdraw', 'lblWidraw');
+    const inpWithdraw = createInput('number', '', 'withdraw', 'inpWithdraw', '0.00', 'required');
+    const bntWithdraw = createButton('submit', 'Withdraw ', 'btnWithdraw', 'Withdraw ');
+
+    const labelDeposit = createLabel('inpDeposit', 'Deposit', 'lblDeposit');
+    const inpDeposit = createInput('number', '', 'deposit', 'inpDeposit', '0.00', 'required');
+    const bntDeposit = createButton('submit', 'Deposit', 'btnDeposit', 'Deposit');
+
+    const dvInput = createDOM('div', 'dvInput', '');
+
+    container.appendChild(bankForm);
+    bankForm.appendChild(labelWithdraw);
+    bankForm.appendChild(labelDeposit);
+    bankForm.appendChild(dvInput);
+
+    labelWithdraw.addEventListener('click', function (e) {
+        const inpDopsit = document.querySelector('#inpDeposit');
+        const btnDopsit = document.querySelector('#btnDeposit');
+        const formDiv = document.querySelector('#dvInput');
+        if (inpDopsit !== null) {
+            formDiv.removeChild(inpDopsit);
+            formDiv.removeChild(btnDopsit);
+        }
+
+        dvInput.appendChild(inpWithdraw);
+        dvInput.appendChild(bntWithdraw);
+    });
+
+    labelDeposit.addEventListener('click', function (e) {
+
+        const inpWithdraw = document.querySelector('#inpWithdraw');
+        const btnWithdraw = document.querySelector('#btnWithdraw');
+        const formDiv = document.querySelector('#dvInput');
+
+        if (inpWithdraw !== null) {
+            formDiv.removeChild(inpWithdraw);
+            formDiv.removeChild(btnWithdraw);
+        }
+
+        dvInput.appendChild(inpDeposit);
+        dvInput.appendChild(bntDeposit);
+    });
+
+}
+
+const logoutForm = function () {
+
+    const container = document.querySelector('.container');
+    const logoutButton = document.querySelector('.container #btnLogout');
+    try {
+        container.removeChild(content);
+        container.removeChild(optAccount);
+    } catch (err) {
+
+    }
+    if (logoutButton !== null) return;
+    const btnLogout = createButton('submit', 'Logout', 'btnLogout', 'Logout');
+
+    container.appendChild(btnLogout);
+    setLogout(btnLogout);
+
+    subTitle.innerText = 'Logout first'
+}
+
+export { accountForm, accessForm, logoutForm, bankForm };

@@ -18,6 +18,9 @@ h1{
     border-bottom: 0.1rem solid var(--backGround);
 
 }
+h2{
+    font-size: 120%;
+}
 h1,h2{
     text-align: center;
     text-transform: uppercase;

@@ -1,7 +1,11 @@
 import { createContent } from './index.js';
-import { accountForm, accessForm } from './form.js';
+import { accountForm, accessForm, logoutForm } from './form.js';
+import { checkAccess, revokAccess } from '../control/ctrlAccess.js';
+import { resumeAccount } from '../view/vwAccount.js';
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    if (checkAccess()) revokAccess();
 
     createContent();
 
@@ -9,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const option = document.getElementById('option');
 
     option.addEventListener('click', function (e) {
+
+        const formBank = document.querySelector('#bankForm');
 
         const access = document.querySelector('#formAccess');
         const account = document.querySelector('#formAccount');
@@ -19,21 +25,17 @@ document.addEventListener('DOMContentLoaded', function () {
         check.checked = true;
 
         switch (optUser) {
+
             case 'newAccount':
-                try {
-                    container.removeChild(access);
-                } catch (e) {
-
-                }
-                accountForm();
+                if (access !== null) container.removeChild(access);
+                if (formBank !== null) container.removeChild(formBank);
+                checkAccess() ? accountForm() : logoutForm();
                 break;
-            case 'accAccount':
-                try {
-                    container.removeChild(account);
-                } catch (e) {
 
-                }
-                accessForm();
+            case 'accAccount':
+                if (account !== null) container.removeChild(account);
+                if (formBank !== null) container.removeChild(formBank);
+                checkAccess() ? accessForm() : resumeAccount();
                 break;
         }
 
