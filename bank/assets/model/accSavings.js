@@ -20,9 +20,13 @@ class Savings extends (Account) {
 
     sumIncome() {
         const now = new Date();
+        now.setHours(now.getHours() - 3);
         const lastMoviment = new Date(this.date);
-        console.log(now.getMilliseconds() - lastMoviment.getMilliseconds());
-        //this.income = this.balance
+        const period = ((now.getTime() - lastMoviment.getTime()) / (1000 * 60 * 60)).toFixed(0);
+
+        this.income = Number(this.balance) * (0.01 * Number(period));
+
+        return this.balance += this.income;
     }
 }
 

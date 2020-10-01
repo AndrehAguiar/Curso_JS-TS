@@ -5,6 +5,8 @@ import { setAccess, setLogout } from '../control/ctrlAccess.js';
 
 
 const accountForm = function () {
+    const accountForm = document.querySelector('#formAccount');
+    if (accountForm) return;
     const container = document.querySelector('.container');
     const subTitle = document.querySelector('#subTitle');
 
@@ -23,6 +25,8 @@ const accountForm = function () {
 }
 
 const accessForm = function () {
+    const accessForm = document.querySelector('#formAccess');
+    if (accessForm) return;
     const container = document.querySelector('.container');
     const subTitle = document.querySelector('#subTitle');
 

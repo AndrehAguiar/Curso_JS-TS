@@ -3,7 +3,7 @@ class Access {
         this.Account = Account;
         this.limit = limit;
         this.income = income;
-        this.date = new Date();
+        this.date = this.setDate();
     }
 
     getLimit() {
@@ -20,6 +20,12 @@ class Access {
 
     setLimit(limit) {
         this.limit = limit;
+    }
+
+    setDate() {
+        const date = new Date();
+        date.setHours(date.getHours() - 3);
+        this.date = date;
     }
 
     getDate() {

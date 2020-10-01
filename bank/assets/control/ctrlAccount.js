@@ -30,11 +30,10 @@ const getClient = function (clientName, numAccount) {
 
         const user = new Pessoa(client.Account.name, client.Account.id);
         const account = new Account(user, client.Account.number, client.Account.balance, client.Account.date);
-
         const accCurrent = new Current(account, client.limit);
         const accSavings = new Savings(account, client.income);
 
-        accSavings.sumIncome();
+        account.setBalance(accSavings.sumIncome());
 
         const access = new Access(account, accCurrent.limit, accSavings.income);
 
@@ -54,10 +53,9 @@ const setAccount = function (element) {
 
         const name = e.target.children['inpName'].value;
         const id = e.target.children['inpID'].value;
-        const date = new Date();
 
         const user = new Pessoa(name, id);
-        const account = new Account(user, date)
+        const account = new Account(user);
 
         account.createNumber();
 
@@ -93,6 +91,7 @@ const updateAccount = function (account, current, session) {
 const withdraw = function (value) {
     const session = getSession();
     const account = new Account(session.Account, session.Account.number, session.Account.balance);
+    account.setDate();
     const current = new Current(account, session.limit)
     current.withdraw(value);
 
@@ -100,9 +99,10 @@ const withdraw = function (value) {
 }
 
 const deposit = function (value) {
-    console.log(value);
+
     const session = getSession();
     const account = new Account(session.Account, session.Account.number, session.Account.balance);
+    account.setDate();
     const current = new Current(account, session.limit)
     current.deposit(value);
 

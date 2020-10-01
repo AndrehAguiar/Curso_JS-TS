@@ -30,18 +30,20 @@ class Account extends (Pessoa) {
         this.balance = balance;
     }
 
-    setDate(date) {
+    setDate() {
+        const date = new Date();
+        date.setHours(date.getHours() - 3);
         this.date = date;
     }
 
     accDeposit(value) {
         this.balance = (Number(this.balance) + Number(value)).toFixed(2);
-        this.date = new Date();
+        this.setDate();
     }
 
     accWithdraw(value) {
         Number(this.balance -= value).toFixed(2);
-        this.date = new Date();
+        this.setDate();
     }
 
     createNumber() {
@@ -51,6 +53,7 @@ class Account extends (Pessoa) {
         }
         this.setNumber(numberAccount);
         this.setBalance(0);
+        this.setDate();
     }
 
 }

@@ -17,7 +17,9 @@ const checkAccess = function () {
     if (!access) return true;
 
     const date = new Date(access.date);
+    date.setHours(date.getHours + 3)
     const now = new Date();
+    now.setHours(now.getHours + 3)
 
     now.setHours(now.getHours() - 1);
 
