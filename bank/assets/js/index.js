@@ -50,7 +50,7 @@ const createResume = function () {
 
 };
 
-const createCurrent = function () {
+const createCurrent = function (session) {
 
     const spnLimit = document.querySelector('#spnLimit');
     if (spnLimit !== null) return;
@@ -58,12 +58,14 @@ const createCurrent = function () {
     try {
         content.removeChild(spnIncome);
     } catch (err) { }
+
     const limit = createDOM('span', 'spnLimit', 'Limit: R$ ');
     content.appendChild(limit);
+    limit.innerText += Number(session.limit).toFixed(2);
 
 };
 
-const createSavings = function () {
+const createSavings = function (session) {
 
     const spnIncome = document.querySelector('#spnIncome');
     if (spnIncome !== null) return;
@@ -74,6 +76,7 @@ const createSavings = function () {
 
     const income = createDOM('span', 'spnIncome', 'Income: R$ ');
     content.appendChild(income);
+    income.innerText += session.income.toFixed(2);
 };
 
 export { createContent, createResume, createCurrent, createSavings };

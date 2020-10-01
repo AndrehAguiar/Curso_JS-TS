@@ -9,6 +9,8 @@ h1{
 h2{
     padding: 1rem;
     text-align: left;
+    max-width: 25rem;
+    margin: 0 auto;
 }
 
 label{
@@ -41,7 +43,14 @@ form>input{
 }
 #optAccount>label{
     background-color: var(--btnPrimary);
+    padding: 0.3rem;
 
+}
+#optAccount>label:first-of-type{
+    border-radius: 5rem 0 0 5rem;
+}
+#optAccount>label:last-of-type{
+    border-radius: 0 5rem 5rem 0;
 }
 #option>label, #optAccount>label{
     width: 50%;
@@ -63,12 +72,47 @@ form>input{
     padding: 1rem;
     flex-direction: row;
     justify-content: space-between;
-    border-bottom: 0.01rem solid;
+    max-width: 30rem;
+    margin: 0 auto;
 }
 #bankForm{
     display: flex;
     flex-direction: row;
 }
 #bankForm>label{
+    padding: 00.5rem;
+    font-size: 0.8rem;
+    background-color: lightgrey;
+    box-shadow: var(--contHovShadown);
+    font-weight: bold;
+}
+#bankForm>label:hover{
     background-color: gray;
+    box-shadow: 0 0.1rem 0.1rem gray;
+}
+#bankForm>div{
+    display: flex;
+    flex-direction: row;
+    width: 65%;
+}
+#bankForm>div>input{
+    max-width: 230%;
+    min-width: 7rem;
+    text-align: right;
+    font-size: 1.5rem;
+}
+#bankForm>div>button{
+    width: 6.5rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border-radius: 0 5rem 5rem 0;
+    background-color: var(--backGround);
+    color: whitesmoke;
+}
+#bankForm>div>button:hover{
+    background-color: yellowgreen;
+    color: black;
+}
+#bankForm>div>button:focus{
+    outline: none;
 }

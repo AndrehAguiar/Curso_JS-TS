@@ -1,11 +1,25 @@
-import { Account } from './account.js';
-
-class Access extends (Account) {
-    constructor(Account) {
-        super(Account);
-        this.number = Account.number;
-        this.balance = Account.balance;
+class Access {
+    constructor(Account, limit, income) {
+        this.Account = Account;
+        this.limit = limit;
+        this.income = income;
         this.date = new Date();
+    }
+
+    getLimit() {
+        return this.limit;
+    }
+
+    getIncome() {
+        return this.income;
+    }
+
+    setIncome(income) {
+        this.income = income;
+    }
+
+    setLimit(limit) {
+        this.limit = limit;
     }
 
     getDate() {

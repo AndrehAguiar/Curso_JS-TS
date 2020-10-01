@@ -1,6 +1,4 @@
-import { Access } from '../model/access.js'
-import { Pessoa } from '../model/pessoa.js';
-import { Account } from '../model/account.js';
+
 import { getClient } from './ctrlAccount.js';
 import { resumeAccount } from '../view/vwAccount.js'
 
@@ -32,7 +30,7 @@ const revokAccess = function () {
 
 const getAccess = function (access) {
     const subTitle = document.querySelector('#subTitle');
-    subTitle.innerText = `Olá, ${access.name}!`;
+    subTitle.innerText = `Olá, ${access.Account.name}!`;
 }
 
 const setLogout = function (element) {
@@ -52,21 +50,17 @@ const setAccess = function (element) {
         const clientName = e.target.children['inpName'].value;
         const numAccount = e.target.children['inpAccount'].value;
 
-        const account = getClient(clientName, numAccount);
-
-        const user = new Pessoa(account.name, account.id);
-        const client = new Account(user, account.number, account.balance);
+        const access = getClient(clientName, numAccount);
 
         const elChild = document.querySelector(`#${e.target.id}`);
         elChild.remove(elChild);
 
-        setUserAccess(client);
+        setUserAccess(access);
     });
 }
 
-const setUserAccess = function (client) {
-
-    const access = new Access(client);
+const setUserAccess = function (access) {
+    if (!access) return;
     access.registerAccess(access);
     getAccess(access);
     resumeAccount();

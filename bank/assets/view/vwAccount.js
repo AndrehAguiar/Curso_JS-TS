@@ -18,7 +18,7 @@ const resumeAccount = function () {
     if (!formAccount) {
         createResume();
         const balance = document.querySelector('#content #spnBalance');
-        balance.innerText += session.balance.toFixed(2);
+        balance.innerText += Number(session.Account.balance).toFixed(2);
         try {
             container.removeChild(btnLogout);
         } catch (err) {
@@ -40,11 +40,11 @@ const resumeAccount = function () {
         switch (optAccount) {
 
             case 'inpSavings':
-                createSavings();
+                createSavings(session);
                 break;
 
             case 'inpCurrent':
-                createCurrent();
+                createCurrent(session);
                 break;
 
         }

@@ -1,12 +1,13 @@
 import { Pessoa } from './pessoa.js';
 
 class Account extends (Pessoa) {
-    constructor(Pessoa, number, balance) {
+    constructor(Pessoa, number, balance, date) {
         super(Pessoa);
         this.name = Pessoa.name;
         this.id = Pessoa.id;
         this.number = number;
         this.balance = balance;
+        this.date = date;
     }
 
     getNumber() {
@@ -17,6 +18,10 @@ class Account extends (Pessoa) {
         return this.balance;
     }
 
+    getDate() {
+        return this.date;
+    }
+
     setNumber(number) {
         this.number = number;
     }
@@ -25,12 +30,18 @@ class Account extends (Pessoa) {
         this.balance = balance;
     }
 
-    deposit(value) {
-        this.setBalance(this.balance += value);
+    setDate(date) {
+        this.date = date;
     }
 
-    withdraw(value) {
-        this.setBalance(this.balance -= value);
+    accDeposit(value) {
+        this.balance = (Number(this.balance) + Number(value)).toFixed(2);
+        this.date = new Date();
+    }
+
+    accWithdraw(value) {
+        Number(this.balance -= value).toFixed(2);
+        this.date = new Date();
     }
 
     createNumber() {
