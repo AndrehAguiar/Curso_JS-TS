@@ -26,7 +26,7 @@ class Savings extends (Account) {
 
         this.income = Number(this.balance) * (0.01 * Number(period));
 
-        return this.balance += this.income;
+        return Number(this.balance) + Number(this.income);
     }
 }
 
