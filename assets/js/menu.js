@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    //const urlPath = 'https://andrehaguiar.github.io/Curso_JS-TS';
-    const urlPath = 'http://127.0.0.1:5500';
+    const urlPath = 'https://andrehaguiar.github.io/Curso_JS-TS';
+    //const urlPath = 'http://127.0.0.1:5500';
 
     const createMenu = function () {
         const navs = {
@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
             'tasks': '/lstTask/',
             'calculator': '/calculator/',
             'cpf': '/cpf/',
-            'bank': '/bank/'
+            'bank': '/bank/',
+            'form': '/formValidate'
         };
 
         const menu = document.querySelector('#menu');

@@ -1,0 +1,28 @@
+form{
+    display: flex;
+    flex-direction: column;
+}
+form>input{
+    padding: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+form>button{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    color:white;
+    background-color: var(--backGround);
+    box-shadow: var(--contHovShadown);
+}
+form>button:hover{
+    background-color: rgb(52, 116, 116);
+    box-shadow: var(--contentShadown);
+}
+.errorText{
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: red;
+    margin-bottom: 0.5rem;
+    margin-top: -0.5rem;
+}

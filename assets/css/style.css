@@ -6,7 +6,7 @@
     --primary:ghostwhite;
     --btnPrimary:orange;
     --btnHover:orangered;
-    --contentShadown:0 0.1rem 0.5rem black;
+    --contentShadown:0 0.1rem 0.3rem black;
     --contHovShadown:0 0.1rem 0.1rem black;
 }
 html, body{
