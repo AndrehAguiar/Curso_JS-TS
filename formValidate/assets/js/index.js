@@ -1,9 +1,11 @@
 import { getForm } from "./form.js";
+import { ValidForm } from "../model/validateForm.js";
+
 
 const createContent = function () {
     const container = document.querySelector('.container');
 
-    let args = { 'id': 'registerForm', 'method': 'get' }
+    let args = { 'id': 'registerForm', 'action': './', 'method': 'dialog' }
     container.appendChild(getForm.createForm(args));
 
     args.text = 'Register Form';
@@ -33,7 +35,7 @@ const createContent = function () {
     registerForm.appendChild(getForm.createInput(args));
 
     args.labelForm = 'inpLogin';
-    args.text = 'User Name:';
+    args.text = 'Username:';
     registerForm.appendChild(getForm.createLabel(args));
 
     args.id = 'inpLogin';
@@ -44,8 +46,8 @@ const createContent = function () {
     args.text = 'Password:';
     registerForm.appendChild(getForm.createLabel(args));
 
-    args.type = 'inpPassword';
-    args.id = 'password';
+    args.type = 'password';
+    args.id = 'inpPassword';
     args.placeholder = 'Create a password';
     registerForm.appendChild(getForm.createInput(args));
 
@@ -61,5 +63,7 @@ const createContent = function () {
     args.text = 'Register';
     args.type = 'submit';
     registerForm.appendChild(getForm.createButton(args));
+
+    const validate = new ValidForm();
 }
 export { createContent };

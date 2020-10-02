@@ -9,6 +9,7 @@ const getForm = {
     createForm(args) {
         const form = document.createElement('form');
         form.id = args.id;
+        form.action = args.action;
         form.method = args.method;
         return form;
     },
@@ -26,6 +27,7 @@ const getForm = {
         input.id = args.id;
         input.placeholder = args.placeholder;
         input.className = args.class;
+        input.classList += ` ${args.id}`;
         return input;
     },
 
